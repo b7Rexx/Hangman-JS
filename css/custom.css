@@ -1,0 +1,25 @@
+.hintOptionBtn {
+    margin: 5px;
+    border: 2px outset lightgrey;
+    /*box-shadow: 0px 5px 0px #00823F;*/
+    transition: all ease 0.3s;
+}
+
+.btn-clicked {
+    border: 2px inset lightgrey !important;
+}
+
+.btn-guess {
+    margin: 5px;
+}
+#hang-image{
+    height: 300px;
+}
+#word-reveal{
+    font-size:28px ;
+}
+
+.guess-btn-clicked{
+    visibility:hidden;
+    /*display: none;*/
+}
