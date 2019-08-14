@@ -1,6 +1,6 @@
 .hintOptionBtn {
     margin: 5px;
-    border: 2px outset lightgrey;
+    border: 1px outset lightgrey;
     /*box-shadow: 0px 5px 0px #00823F;*/
     transition: all ease 0.3s;
 }

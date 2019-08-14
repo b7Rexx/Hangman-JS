@@ -1,11 +1,12 @@
 class StartGuess {
-    constructor(word, hints) {
+    constructor(word, hints, guess_count) {
         document.getElementById('app').style.display = 'none';
         document.getElementById('app_start').style.display = 'block';
 
         this.word = word;
         this.hints = hints;
-        this.count_guess = 6;
+        this.count_guess = guess_count;
+        this.guess_total = guess_count;
         this.status = false;
         var that = this;
 
@@ -15,7 +16,7 @@ class StartGuess {
 
             var btnAppends = '';
             alphabets.forEach(function (value) {
-                btnAppends += "<button class='btn-guess' data-key='" + value + "'>" + value + "</button>";
+                btnAppends += "<button class='btn btn-info btn-guess ' data-key='" + value + "'>" + value + "</button>";
             });
 
             document.getElementById('app_start').innerHTML =
@@ -43,26 +44,33 @@ class StartGuess {
                     if (that.count_guess > 0) {
                         if (that.hints.indexOf(key_attribute) === -1) {
                             that.hints.push(key_attribute);
-                            document.getElementById('count-guess').innerHTML = --that.count_guess;
+                            var splitWord = that.word.split('');
+                            if (splitWord.indexOf(key_attribute) === -1)
+                                document.getElementById('count-guess').innerHTML = --that.count_guess;
 
-                            switch (that.count_guess) {
-                                case 5:
+                            var guess_count_switch = ((that.count_guess / that.guess_total) * 6).toFixed(0).toString();
+                            console.log(guess_count_switch);
+                            switch (guess_count_switch) {
+                                case "5":
                                     document.getElementById('hang-image').src = "upload/hang-5.png";
                                     break;
-                                case 4:
+                                case "4":
                                     document.getElementById('hang-image').src = "upload/hang-4.png";
                                     break;
-                                case 3:
+                                case "3":
                                     document.getElementById('hang-image').src = "upload/hang-3.png";
                                     break;
-                                case 2:
+                                case "2":
                                     document.getElementById('hang-image').src = "upload/hang-2.png";
                                     break;
-                                case 1:
+                                case "1":
                                     document.getElementById('hang-image').src = "upload/hang-1.png";
                                     break;
-                                case 0:
+                                case "0":
                                     document.getElementById('hang-image').src = "upload/hang-loss.png";
+                                    break;
+                                default:
+                                    document.getElementById('hang-image').src = "upload/hang-6.png";
                                     break;
                             }
                         }

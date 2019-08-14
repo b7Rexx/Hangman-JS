@@ -13,7 +13,7 @@
 <body>
 
 <div class="container">
-    <div class="row content-justify-center bg-info" style="min-height: 500px;">
+    <div class="row content-justify-center border" style="min-height: 500px;">
         <div class="col-sm-12" id="app">
             <label for='get_word'><b>Type hang man word:</b></label>
             <input type='text' id='get_word' min='5' max='25' class='form-control'>
@@ -22,7 +22,10 @@
             <div id='hint_options'></div>
             <br>
             <hr>
-            <button id='start_btn'>Start</button>
+            <b>Guess count:</b>
+            <input type="number" min="2" max="15" class="form-control col-sm-2" id="guess_count_input" >
+            <hr>
+            <button id='start_btn' class="btn btn-primary" disabled>Start</button>
 
         </div>
         <div class="col-sm-12" id="app_start" style="display:none;">
